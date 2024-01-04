@@ -1,6 +1,17 @@
+import "./Catalogo.css"
+import Headercatalogo from "./Headercatalogo";
+import Portada from "./Portada"
+
 // import { useState, useEffect } from "react";
 export default function Catalogo() {
-  return <h1>hola</h1>;
+  return (
+    <>
+    <div className="background-portada">
+    <Headercatalogo/>
+    <Portada/>
+    </div>
+    </>
+  )
 }
 
 // const [data, setData] = useState(null);

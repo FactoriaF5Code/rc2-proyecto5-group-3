@@ -19,7 +19,7 @@ export default function Homepage() {
   return (
         <>
           <div className="body">
-            <header>
+            <header className="header-home">
               <img src={logo} alt="Netflix" />
               <button className="inicio">Iniciar Sesión</button>
             </header>

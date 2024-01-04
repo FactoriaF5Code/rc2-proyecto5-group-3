@@ -1,0 +1,49 @@
+.netflix-header {
+  display: flex;
+  justify-content: space-between;
+  margin: auto 50px;
+}
+
+.logo-netflix-header {
+  width: 95px;
+  height: 25px;
+}
+
+.ul-header {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.ul-header li {
+  color: #fff;
+  text-decoration: none;
+}
+
+.section-header-rigth {
+  gap: 10px;
+}
+
+.lupa {
+  color: #fff;
+  cursor: pointer;
+}
+
+.section-header-rigth .ul-header {
+  list-style: none;
+  padding-left: 0;
+}
+
+.campana {
+  color: #fff;
+  cursor: pointer;
+}
+
+.perfil {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+}

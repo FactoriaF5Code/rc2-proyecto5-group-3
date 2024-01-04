@@ -17,7 +17,7 @@
   height: 100vh;
 }
 
-header {
+.header-home {
   display: flex;
   justify-content: space-around;
   padding: 20px;
