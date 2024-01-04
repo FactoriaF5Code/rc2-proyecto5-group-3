@@ -1,7 +1,7 @@
 .contenedor-portada {
   width: 492px;
   margin-left: 60px;
-  margin-top: 90px;
+  margin-top: 180px;
 }
 
 .parrafo-portada {
@@ -12,6 +12,7 @@
 }
 
 h2 {
+  font-size: 40px;
   color: #fff;
   margin: 10px 0;
 }

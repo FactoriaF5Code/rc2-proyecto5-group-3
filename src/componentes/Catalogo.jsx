@@ -1,8 +1,9 @@
 import "./Catalogo.css"
 import Headercatalogo from "./Headercatalogo";
 import Portada from "./Portada"
+import Peliculas from "./Peliculas";
 
-// import { useState, useEffect } from "react";
+
 export default function Catalogo() {
   return (
     <>
@@ -10,15 +11,7 @@ export default function Catalogo() {
     <Headercatalogo/>
     <Portada/>
     </div>
+    <Peliculas/>
     </>
   )
 }
-
-// const [data, setData] = useState(null);
-
-// useEffect(() => {
-//   fetch("https://api.themoviedb.org/3/configuration")
-//     .then((response) => response.json())
-//     .then((response) => console.log(response))
-//     .then((data)=>setData(data));
-// },[]);
