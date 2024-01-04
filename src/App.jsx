@@ -1,23 +1,18 @@
-// import { useState, useEffect } from "react";
 import Homepage from "./componentes/Homepage.jsx";
-import Footer from "./componentes/Footer.jsx"
+import Footer from "./componentes/Footer.jsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";  // Cambiado de BrowserRouter a Router y agregado Routes
+import Catalogo from "./componentes/Catalogo.jsx";
 import "./App.css";
 
 function App() {
-  // const [data, setData] = useState(null);
-
-  // useEffect(() => {
-  //   fetch("https://api.themoviedb.org/3/configuration")
-  //     .then((response) => response.json())
-  //     .then((response) => console.log(response))
-  //     .then((data)=>setData(data));
-  // },[]);
-
   return (
-    <>
-      <Homepage/>
-      <Footer/>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/catalogo" element={<Catalogo />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
