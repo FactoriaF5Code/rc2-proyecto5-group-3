@@ -1,3 +1,4 @@
+// import { requirePropFactory } from "@material-ui/core";
 import "./Peliculas.css";
 import { useState, useEffect } from "react";
 
@@ -16,7 +17,7 @@ export default function Peliculas() {
 
   useEffect(() => {
     fetch(
-      "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=12",
+      "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=es-ES&page=1&sort_by=popularity.desc&with_genres=12",
       options
     )
       .then((response) => response.json())
@@ -28,16 +29,40 @@ export default function Peliculas() {
   }, []);
 
   return (
-    <div>
-      {data.map((movie) => {
-        let URL_final = URL_POSTER + movie.poster_path;
-        return (
-          <div key={movie.id}>
-            <p>{movie.title}</p>
-            <img src={URL_final} alt="peliculas" />
-          </div>
-        );
-      })}
+    <div className="cartelera">
+      <p className="titulo_seccion">Populares en Restflix</p>
+      <div className="contenedor_populares">
+        {data.map((movie) => {
+          let URL_final = URL_POSTER + movie.backdrop_path;
+          return (
+            <div className="populares_restflix" key={movie.id}>
+              <img className="peliculas" src={URL_final} alt="peliculas" />
+            </div>
+          );
+        })}
+      </div>
+      <p className="titulo_seccion">Estrenos</p>
+      <div className="contenedor_populares">
+        {data.map((movie) => {
+          let URL_final = URL_POSTER + movie.backdrop_path;
+          return (
+            <div className="populares_restflix" key={movie.id}>
+              <img className="peliculas" src={URL_final} alt="peliculas" />
+            </div>
+          );
+        })}
+      </div>
+      <p className="titulo_seccion">Series conocidas </p>
+      <div className="contenedor_populares">
+        {data.map((movie) => {
+          let URL_final = URL_POSTER + movie.backdrop_path;
+          return (
+            <div className="populares_restflix" key={movie.id}>
+              <img className="peliculas" src={URL_final} alt="peliculas" />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

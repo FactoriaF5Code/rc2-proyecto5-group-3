@@ -1,0 +1,20 @@
+.cartelera {
+    margin-left: 60px;
+}
+
+.titulo_seccion {
+color: #fff;
+font-size: 25px;
+margin: 20px 0;
+}
+
+.contenedor_populares {
+display: flex;
+gap: 5px;
+overflow: hidden;
+}
+
+.peliculas {
+    width: 250px;
+    border-radius: 5px;
+}
