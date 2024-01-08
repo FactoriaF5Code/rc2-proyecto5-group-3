@@ -1,9 +1,25 @@
 // import { requirePropFactory } from "@material-ui/core";
 import "./Peliculas.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 export default function Peliculas() {
   let URL_POSTER = "https://image.tmdb.org/t/p/original";
+  const [sliderNum, setSliderNum] = useState(0)
+  const Referencia = useRef();
+
+  const click = (direccion) => {
+    let distancia = Referencia.current.getBoundingClientRect().x - 60;
+    if (direccion === "izq" && sliderNum > 0) {
+      setSliderNum(sliderNum-1)
+      Referencia.current.style.transform = `translateX(${255 + distancia}px)`;
+    }
+    if (direccion === "drch" && sliderNum < 14) {
+      setSliderNum(sliderNum+1)
+      Referencia.current.style.transform = `translateX(${-255 + distancia}px)`;
+    }
+  };
   const [data, setData] = useState([]);
 
   const options = {
@@ -37,17 +53,21 @@ export default function Peliculas() {
   return (
     <div className="cartelera">
       <p className="titulo_seccion">Populares en Restflix</p>
-      <div className="contenedor_populares">
-        {data.map((movie) => {
-          let URL_final = URL_POSTER + movie.backdrop_path;
-          return (
-            <div className="populares_restflix" key={movie.id}>
-              <img className="peliculas" src={URL_final} alt="peliculas" />
-            </div>
-          );
-        })}
+      <div className="contenedor_slider">
+        <ArrowBackIosNewIcon id="flecha_izq" onClick={() => click("izq")} />
+        <div className="contenedor_populares" ref={Referencia}>
+          {data.map((movie) => {
+            let URL_final = URL_POSTER + movie.backdrop_path;
+            return (
+              <div className="populares_restflix" key={movie.id}>
+                <img className="peliculas" src={URL_final} alt="peliculas" />
+              </div>
+            );
+          })}
+        </div>
+        <ArrowForwardIosIcon id="flecha_drch" onClick={() => click("drch")} />
       </div>
-      <p className="titulo_seccion">Estrenos</p>
+      {/* <p className="titulo_seccion">Estrenos</p>
       <div className="contenedor_populares">
         {data.map((movie) => {
           let URL_final = URL_POSTER + movie.backdrop_path;
@@ -68,7 +88,7 @@ export default function Peliculas() {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 }

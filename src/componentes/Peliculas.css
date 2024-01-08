@@ -1,20 +1,51 @@
 .cartelera {
-    margin-left: 60px;
+ 
+  overflow: hidden;
 }
 
 .titulo_seccion {
-color: #fff;
-font-size: 25px;
-margin: 20px 0;
+  color: #fff;
+  font-size: 25px;
+  margin: 20px 60px;
+}
+.contenedor_slider {
+  position: relative;
+  height: 100%;
+}
+
+#flecha_izq {
+  width: 50px;
+  height: 100%;
+  background-color: rgb(22, 22, 22, 0.5);
+  color: #fff;
+  position: absolute;
+  left:0;
+  z-index: 99;
+  cursor: pointer;
+}
+
+#flecha_drch {
+    width: 50px;
+    height: 100%;
+    background-color: rgb(22, 22, 22, 0.5);
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top:0;
+    z-index: 99;
+    cursor: pointer;
 }
 
 .contenedor_populares {
-display: flex;
-gap: 5px;
-overflow: hidden;
+  display: flex;
+  gap: 5px;
+  transform: translateX(0px);
+  transition: all 1s ease;
+  margin-left: 60px;
 }
 
 .peliculas {
-    width: 250px;
-    border-radius: 5px;
+  width: 250px;
+  border-radius: 5px;
+  
 }
