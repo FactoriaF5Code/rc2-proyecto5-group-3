@@ -16,16 +16,22 @@ export default function Peliculas() {
   };
 
   useEffect(() => {
-    fetch(
-      "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=es-ES&page=1&sort_by=popularity.desc&with_genres=12",
-      options
-    )
-      .then((response) => response.json())
-      .then((movies) => {
-        console.log("Movies from API:", movies);
-        setData(Array.isArray(movies.results) ? movies.results : []);
-      })
-      .catch((error) => console.error("Error fetching movies:", error));
+    let pelis = localStorage.getItem("pelis");
+    if (pelis === null) {
+      fetch(
+        "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=es-ES&page=1&sort_by=popularity.desc&with_genres=12",
+        options
+      )
+        .then((response) => response.json())
+        .then((movies) => {
+          localStorage.setItem("pelis", JSON.stringify(movies));
+          console.log("Movies from API:", movies);
+          setData(Array.isArray(movies.results) ? movies.results : []);
+        })
+        .catch((error) => console.error("Error fetching movies:", error));
+    } else {
+      setData(JSON.parse(pelis).results);
+    }
   }, []);
 
   return (
