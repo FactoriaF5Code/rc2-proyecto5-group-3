@@ -18,7 +18,7 @@ export default function Api() {
     let pelis = localStorage.getItem("pelis");
     if (pelis === null) {
       fetch(
-        "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=es-ES&page=1&sort_by=popularity.desc&with_genres=12",
+        "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_video=false&language=es-ES&page=1&sort_by=popularity.desc&with_genres=12",
         options
       )
         .then((response) => response.json())
@@ -43,8 +43,8 @@ export default function Api() {
               <img className="peliculas" src={URL_final} alt="peliculas" />
             </div>
             <div className="info">
-              <p className="p titulo">{movie.title}</p>
-              <p className="p estreno">{movie.release_date}</p>
+              <p className="p titulo">{movie.name}</p>
+              <p className="p estreno">{movie.first_air_date}</p>
               <p className="p voto">{movie.vote_average}</p>
             </div>
           </section>
