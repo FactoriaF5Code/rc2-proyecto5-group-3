@@ -27,7 +27,7 @@ export default function SliderPeliculas() {
 
   return (
     <div className="cartelera">
-      <p className="titulo_seccion">Populares en Netflix</p>
+      <p className="titulo_seccion">Películas</p>
       <div className="contenedor_slider_movie">
         <ArrowBackIosNewIcon
           id="flecha_izq"
