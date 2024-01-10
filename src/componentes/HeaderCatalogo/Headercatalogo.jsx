@@ -1,5 +1,5 @@
-import "./Headercatalogo.css";
-import logoNetflix from "../assets/logoNetflix.svg";
+import "../HeaderCatalogo/Headercatalogo.css";
+import logoNetflix from "/src/assets/logoNetflix.svg"
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SearchIcon from "@mui/icons-material/Search";
 

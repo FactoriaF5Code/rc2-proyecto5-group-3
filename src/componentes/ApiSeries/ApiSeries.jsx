@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./Api.css";
+import "../ApiPeliculas/ApiPeliculas.css"
 
 export default function ApiSeries() {
   let URL_POSTER = "https://image.tmdb.org/t/p/original";

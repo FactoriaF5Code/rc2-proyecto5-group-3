@@ -1,7 +1,7 @@
 
 .background-portada {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("../assets/portada.jpg") ;
+    url("/src/assets/portada.jpg") ;
     height: 567px;
     background-size: cover;
 }

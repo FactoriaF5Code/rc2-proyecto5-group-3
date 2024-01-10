@@ -1,10 +1,10 @@
-import logo from "../assets/logoNetflix.svg";
+import logo from "/src/assets/logoNetflix.svg";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 
-import "./Homepage.css";
+import "../Homepage/Homepage.css";
 
 const theme = createTheme({
   palette: {

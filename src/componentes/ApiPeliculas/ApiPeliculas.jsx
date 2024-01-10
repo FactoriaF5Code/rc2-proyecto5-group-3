@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import "./Api.css";
+import "../ApiPeliculas/ApiPeliculas.css";
 
-export default function Api() {
+export default function ApiPeliculas() {
   let URL_POSTER = "https://image.tmdb.org/t/p/original";
   const [data, setData] = useState([]);
 
@@ -18,7 +18,7 @@ export default function Api() {
     let pelis = localStorage.getItem("pelis");
     if (pelis === null) {
       fetch(
-        "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=es-ES&page=1&sort_by=popularity.desc&with_genres=12",
+        'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc',
         options
       )
         .then((response) => response.json())
@@ -35,7 +35,7 @@ export default function Api() {
 
   return (
     <>
-      {data.map((movie, index) => {
+      {data && data.map((movie, index) => {
         let URL_final = URL_POSTER + movie.backdrop_path;
         return (
           <section key={index} className="carta">
