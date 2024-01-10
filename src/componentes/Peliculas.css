@@ -1,5 +1,4 @@
 .cartelera {
- 
   overflow: hidden;
 }
 
@@ -8,7 +7,12 @@
   font-size: 25px;
   margin: 20px 60px;
 }
-.contenedor_slider {
+.contenedor_slider_movies {
+  position: relative;
+  height: 100%;
+}
+
+.contenedor_slider_series {
   position: relative;
   height: 100%;
 }
@@ -19,21 +23,44 @@
   background-color: rgb(22, 22, 22, 0.5);
   color: #fff;
   position: absolute;
-  left:0;
+  left: 0;
   z-index: 99;
   cursor: pointer;
 }
 
 #flecha_drch {
-    width: 50px;
-    height: 100%;
-    background-color: rgb(22, 22, 22, 0.5);
-    color: #fff;
-    position: absolute;
-    right: 0;
-    top:0;
-    z-index: 99;
-    cursor: pointer;
+  width: 50px;
+  height: 100%;
+  background-color: rgb(22, 22, 22, 0.5);
+  color: #fff;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 99;
+  cursor: pointer;
+}
+
+#flecha_izqSeries {
+  width: 50px;
+  height: 100%;
+  background-color: rgb(22, 22, 22, 0.5);
+  color: #fff;
+  position: absolute;
+  left: 0;
+  z-index: 99;
+  cursor: pointer;
+}
+
+#flecha_drchSeries {
+  width: 50px;
+  height: 100%;
+  background-color: rgb(22, 22, 22, 0.5);
+  color: #fff;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 99;
+  cursor: pointer;
 }
 
 .contenedor_populares {
@@ -47,5 +74,4 @@
 .peliculas {
   width: 250px;
   border-radius: 5px;
-  
 }

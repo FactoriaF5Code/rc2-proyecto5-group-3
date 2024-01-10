@@ -3,13 +3,18 @@ import "./Peliculas.css";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Api from "./Api";
-import Series from "./Series";
+
 import { useRef, useState } from "react";
+import ApiSeries from "./ApiSeries";
 
 export default function Peliculas() {
   const [isMove, setIsMove] = useState(false);
   const [sliderNum, setSliderNum] = useState(0);
   const Referencia = useRef();
+
+  const [isMoveSeries, setIsMoveSeries] = useState(false);
+  const [sliderNumSeries, setSliderNumSeries] = useState(0);
+  const ReferenciaSeries = useRef();
 
   const click = (direccion) => {
     setIsMove(true);
@@ -24,10 +29,28 @@ export default function Peliculas() {
     }
   };
 
+  const clickSeries = (direccionSeries) => {
+    setIsMoveSeries(true);
+    let distanciaSeries =
+      ReferenciaSeries.current.getBoundingClientRect().x - 60;
+    if (direccionSeries === "izqSeries" && sliderNumSeries > 0) {
+      setSliderNumSeries(sliderNumSeries - 1);
+      ReferenciaSeries.current.style.transform = `translateX(${
+        255 + distanciaSeries
+      }px)`;
+    }
+    if (direccionSeries === "drchSeries" && sliderNumSeries < 14) {
+      setSliderNumSeries(sliderNumSeries + 1);
+      ReferenciaSeries.current.style.transform = `translateX(${
+        -255 + distanciaSeries
+      }px)`;
+    }
+  };
+
   return (
     <div className="cartelera">
       <p className="titulo_seccion">Populares en Restflix</p>
-      <div className="contenedor_slider">
+      <div className="contenedor_slider_movie">
         <ArrowBackIosNewIcon
           id="flecha_izq"
           onClick={() => click("izq")}
@@ -39,16 +62,19 @@ export default function Peliculas() {
         <ArrowForwardIosIcon id="flecha_drch" onClick={() => click("drch")} />
       </div>
       <p className="titulo_seccion">Originales de Restflix </p>
-      <div className="contenedor_slider">
+      <div className="contenedor_slider_series">
         <ArrowBackIosNewIcon
-          id="flecha_izq"
-          onClick={() => click("izq")}
-          style={{ display: !isMove && "none" }}
+          id="flecha_izqSeries"
+          onClick={() => clickSeries("izqSeries")}
+          style={{ display: !isMoveSeries && "none" }}
         />
-        <div className="contenedor_populares" ref={Referencia}>
-          <Series/>
+        <div className="contenedor_populares" ref={ReferenciaSeries}>
+          <ApiSeries />
         </div>
-        <ArrowForwardIosIcon id="flecha_drch" onClick={() => click("drch")} />
+        <ArrowForwardIosIcon
+          id="flecha_drchSeries"
+          onClick={() => clickSeries("drchSeries")}
+        />
       </div>
     </div>
   );

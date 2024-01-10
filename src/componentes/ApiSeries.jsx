@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Api.css";
 
-export default function Api() {
+export default function ApiSeries() {
   let URL_POSTER = "https://image.tmdb.org/t/p/original";
   const [data, setData] = useState([]);
 
