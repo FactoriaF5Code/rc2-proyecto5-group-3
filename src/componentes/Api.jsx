@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./Api.css"
+import "./Api.css";
 
 export default function Api() {
   let URL_POSTER = "https://image.tmdb.org/t/p/original";
@@ -43,9 +43,9 @@ export default function Api() {
               <img className="peliculas" src={URL_final} alt="peliculas" />
             </div>
             <div className="info">
+              <p className="p voto">{movie.vote_average}</p>
               <p className="p titulo">{movie.title}</p>
               <p className="p estreno">{movie.release_date}</p>
-              <p className="p voto">{movie.vote_average}</p>
             </div>
           </section>
         );

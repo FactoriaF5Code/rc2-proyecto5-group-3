@@ -38,9 +38,10 @@
 }
 
 .voto {
-    border: 2px solid #fff;
+    border: 3px solid #e50914;
     width: max-content;
     font-size: 25px;
+    color: #e50914;
 }
 
 .populares_restflix {

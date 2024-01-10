@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./Api.css"
+import "./Api.css";
 
 export default function Api() {
   let URL_POSTER = "https://image.tmdb.org/t/p/original";
@@ -15,37 +15,37 @@ export default function Api() {
   };
 
   useEffect(() => {
-    let pelis = localStorage.getItem("pelis");
-    if (pelis === null) {
+    let series = localStorage.getItem("series");
+    if (series === null) {
       fetch(
-        "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_video=false&language=es-ES&page=1&sort_by=popularity.desc&with_genres=12",
+        "https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc",
         options
       )
         .then((response) => response.json())
-        .then((movies) => {
-          localStorage.setItem("pelis", JSON.stringify(movies));
-          console.log("Movies from API:", movies);
-          setData(Array.isArray(movies.results) ? movies.results : []);
+        .then((tv) => {
+          localStorage.setItem("series", JSON.stringify(tv));
+          console.log("tv from API:", tv);
+          setData(Array.isArray(tv.results) ? tv.results : []);
         })
-        .catch((error) => console.error("Error fetching movies:", error));
+        .catch((error) => console.error("Error fetching tv:", error));
     } else {
-      setData(JSON.parse(pelis).results);
+      setData(JSON.parse(series).results);
     }
   }, []);
 
   return (
     <>
-      {data.map((movie, index) => {
-        let URL_final = URL_POSTER + movie.backdrop_path;
+      {data.map((serie, index) => {
+        let URL_final = URL_POSTER + serie.backdrop_path;
         return (
           <section key={index} className="carta">
-            <div className="populares_restflix" key={movie.id}>
+            <div className="populares_restflix" key={serie.id}>
               <img className="peliculas" src={URL_final} alt="peliculas" />
             </div>
             <div className="info">
-              <p className="p titulo">{movie.name}</p>
-              <p className="p estreno">{movie.first_air_date}</p>
-              <p className="p voto">{movie.vote_average}</p>
+              <p className="p voto">{serie.vote_average}</p>
+              <p className="p titulo">{serie.name}</p>
+              <p className="p estreno">{serie.first_air_date}</p>
             </div>
           </section>
         );

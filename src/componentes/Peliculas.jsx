@@ -36,8 +36,17 @@ export default function Peliculas() {
         <div className="contenedor_populares" ref={Referencia}>
           <Api />
         </div>
-        <div className="series" ref={Referencia}>
-          <Series />
+        <ArrowForwardIosIcon id="flecha_drch" onClick={() => click("drch")} />
+      </div>
+      <p className="titulo_seccion">Originales de Restflix </p>
+      <div className="contenedor_slider">
+        <ArrowBackIosNewIcon
+          id="flecha_izq"
+          onClick={() => click("izq")}
+          style={{ display: !isMove && "none" }}
+        />
+        <div className="contenedor_populares" ref={Referencia}>
+          <Series/>
         </div>
         <ArrowForwardIosIcon id="flecha_drch" onClick={() => click("drch")} />
       </div>
