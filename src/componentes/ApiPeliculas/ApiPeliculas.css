@@ -1,0 +1,49 @@
+.carta {
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+ cursor: pointer;
+}
+
+.carta:hover {
+  transform: scale(1.2);
+  z-index: 3;
+}
+
+.info {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  height: 144px;
+  width: 250px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.info:hover {
+  opacity: 1;
+}
+
+.p {
+  font-size: 15px;
+  margin: 5px;
+}
+
+.titulo {
+    font-size: 20px;
+}
+
+.voto {
+    border: 3px solid #e50914;
+    width: max-content;
+    font-size: 25px;
+    color: #e50914;
+}
+
+.populares_restflix {
+  opacity: 1;
+}
